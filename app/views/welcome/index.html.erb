@@ -1,0 +1,21 @@
+<h1>Welcome To My Bloging Site</h1>
+<% if user_signed_in? %>
+<%#if has_role?(:admin)%>
+<h1><%= current_user.email %></h1>
+
+<%= link_to 'My Blog' ,controller:'articles'%>
+<%# end %>
+<% else %>
+<%= render plain: "Please Sign in To User" %>
+<% end %>
+<%= button_tag "Save Changes", :onclick => "myalert();"%><!-- <script> 
+function myalert() {
+     alert ("My Message")
+       }
+</script> -->
+<%# 
+</h1>
+<p> 
+  <td>If You New User Please Register</td>
+  <td> <%= link_to 'Register', new_user_path %>
+  

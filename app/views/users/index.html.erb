@@ -1,0 +1,12 @@
+<h1>About</h1>
+ <% @user.each do |user| %>
+
+  <br><%= render plain: "Name:"%><tb>
+  <%= user.name %><br>
+   <%= render plain: "Age:"%><tb>
+  <%= user.age %><br>
+   <%= render plain: "Email:"%><tb>
+  <%= user.email %><br>
+   <%= render plain: "Mobile"%><tb>
+  <%= user.mobile %>
+ <% end %>

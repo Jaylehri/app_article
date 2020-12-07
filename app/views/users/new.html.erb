@@ -1,0 +1,45 @@
+<%= form_with model: @user, local: true do |form| %>
+
+<% if @user.errors.any? %>
+  <div id ="errors_explanation">
+    <h2>
+      <%= pluralize(@user.errors.count,"error") %> prohibited errors from
+  being saved:
+</h2>
+<ul>
+  <%@user.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+      <% end %>
+    </ul>
+</div>
+<% end %>
+
+<h1>Registration Form</h1>
+
+
+<p>
+  <%= form.label :Name %><br>
+  <%= form.text_field :name%>
+</p>
+
+<p> 
+  <%= form.label :Age  %><br>
+<%= form.number_field :age %>
+  
+</p>
+
+<p>
+  <%= form.label :Email %><br>
+  <%= form.text_field :email %>
+
+</p>
+
+<p>
+  <%= form.label :Mobile %><br>
+  <%= form.text_field :mobile%>
+  
+</p>
+<p>
+  <%= form.submit  %>
+</p>
+<%end%>

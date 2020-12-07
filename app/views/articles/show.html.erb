@@ -1,0 +1,32 @@
+<p>
+  <strong>Title:</strong>
+  <%= @article.title %>
+</p>
+ 
+<p>
+  <strong>Text:</strong>
+  <%= @article.text %>
+</p>
+ 
+ <p>
+   <strong>Email</strong>   
+   <%= @article.email %>
+ </p>
+ 
+ <p>
+  <strong>Image:</strong>
+ <%if @article.image.attached?%>
+  <%= image_tag url_for(@article.image) , style:  "width:200px; display:block"%>
+  <%=link_to @article.image.filename, rails_blob_path(@article.image, disposition: "attachment") %>
+  <%end%>
+</p>
+ 
+<h2>Comments</h2>
+<%= render @article.comments %>
+ 
+<h2>Add a comment:</h2>
+<%= render 'comments/form' %>
+ <% if has_role?(:admin)%>
+<%= link_to 'Edit', edit_article_path(@article) %> 
+<% end %>
+<%= link_to 'Back', articles_path %>
