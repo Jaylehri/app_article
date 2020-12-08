@@ -29,9 +29,9 @@ before_action :set_article, only: [:show, :edit, :update, :destroy]
   end
 
   def create
-    @article = Article.all
+   # @article = Article.all
     @article = Article.new(article_params)
-    @aritlce.user_id = current_user.id 
+   # @aritlce.user_id = current_user.id 
     respond_to do |format|
       if @article.save 
         format.js 
